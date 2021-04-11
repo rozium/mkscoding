@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form action="/add" method="post">
+                <h3>Tambah data</h3>
+                <input placeholder="nama" type="text" name="nama" id="nama" autocomplete="off">
+                <br>
+                <input placeholder="nilai" type="number" name="nilai" id="nilai" autocomplete="off">
+                <br>
+                <button type="submit" class="btn btn-sm mt-2 btn-primary" name="submit" value="submit">Submit</button>
+            </form>
+            <h2>Daftar Mahasiswa</h2>
+            <ol>
+                {% for m in daftar_mahasiswa %}
+                    <li>
+                        <a href="/detail/{{ m['id'] }}"> {{ m['nama'] }} </a> | 
+                        <a href="/update/{{ m['id'] }}" class="text-warning"> update </a> |
+                        <a href="/delete/{{ m['id'] }}" class="text-danger"> delete </a> 
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+ini tulisan tidak akan muncul
